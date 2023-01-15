@@ -1,0 +1,37 @@
+{%load static%}
+
+
+<header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="header__contacts">
+                    <a class="header__phone" href="tel:16504767684">+1(650)476-76-84</a>
+                    <a class="header__email" href="#">support@site.com</a>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="header__content">
+            <div class="container">
+                <div class="header__content-inner">
+                    <div class="header__burger">
+                        <span>
+                        </span>
+                    </div>
+                    <nav class="menu">
+                        <ul>
+                            <li><a href="{%url 'home_page'%}">
+                                    <img class="logo" src="{% static 'shop/img/logo2.svg'%}" alt="">
+                                </a></li>
+                            <li><a class="enblHover" href="{%url 'home_page'%}">About us</a></li>
+                            <li><a class="enblHover" href="{%url 'home_page'%}">Catalog</a></li>
+                        </ul>
+                    </nav>
+                    <a class="header__cart enblHover" href="{%url 'cart_page'%}">My cart</a>
+                </div>
+            </div>
+
+        </div>
+
+    </header>

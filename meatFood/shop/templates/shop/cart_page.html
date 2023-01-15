@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+    <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+    <!--    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto:wght@400;500&display=swap"-->
+    <!--        rel="stylesheet">-->
+    <link rel="stylesheet" href=" {% static 'shop/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+    <link rel="stylesheet" href="../../static/shop/css/style.css">
+</head>
+
+<body>
+
+    {% include 'shop/header.html' %}
+
+
+    <section class="main_content" style="min-height: 800px;">
+        <div class="container page_content">
+
+            <div class="cart_conteiner">
+                <div class="cart_body">
+                    <h1 class="form__title">Cart</h1>
+                    <div class="cart_content">
+                        <ul>
+                            <li>
+                                <div class="item_info">
+                                    <div class="name_quantity">
+                                        <span class="cart_content__name">Beef</span>
+                                        <span>x</span>
+                                        <span class="cart_content__qnt">3</span>
+                                    </div>
+                                    <div class="price_currency">
+                                        <span class="cart_content__price">180</span>
+                                        <span class="cart_content__curr">$</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item_info">
+                                    <div class="name_quantity">
+                                        <span class="cart_content__name">Beef</span>
+                                        <span>x</span>
+                                        <span class="cart_content__qnt">3</span>
+                                    </div>
+                                    <div class="price_currency">
+                                        <span class="cart_content__price">180</span>
+                                        <span class="cart_content__curr">$</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="total_info">
+                            <h2>Total price</h2>
+                            <div class="price_currency">
+                                <span class="cart_content__price">180</span>
+                                <span class="cart_content__curr">$</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form_container" id="form_container_id">
+                <form action="/cart/" class="form" method="post">
+                    {% csrf_token %}
+                    <h1 class="form__title">Make an order</h1>
+                    <div class="form__group">
+                        <input type="text" name="first_name" class="form__input" placeholder=" ">
+                        <label class="form__label">First name</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" name="last_name" class="form__input" placeholder=" ">
+                        <label class="form__label">Last name</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="tel" name="phone_number" class="form__input" placeholder=" ">
+                        <label class="form__label">Phone number</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" name="user_address" class="form__input" placeholder=" ">
+                        <label class="form__label">Address</label>
+                    </div>
+                    <div class="form__group">
+                        <textarea name="comment" class="form__textarea" placeholder=" " rows="5"></textarea>
+                        <label class="form__label">Comment</label>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" name="slugs_quantity" id="slugs_quantity" value="101010">
+                    </div>
+
+                    <button type="submit" class="form__button">Order</button>
+
+                </form>
+            </div>
+
+
+        </div>
+    </section>
+
+    {% include 'shop/footer.html' %}
+
+    <script src="../../static/shop/js/cart_page.js"></script>
+</body>
+
+</html>

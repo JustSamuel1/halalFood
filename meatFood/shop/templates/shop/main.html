@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto:wght@400;500&display=swap"-->
+<!--          rel="stylesheet">-->
+    <link rel="stylesheet" href=" {% static 'shop/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}">
+</head>
+<body>
+{% include 'shop/header.html' %}
+
+
+<section class="main_content">
+    <div class="container">
+
+        <div class="wrapper">
+            {%for item in product%}
+            <div class="Card">
+                <div class="Card_body">
+                    <h3 id="Card_name">{{item.name}}</h3>
+                    <div class="prod_image">
+                        <img src="{{ item.photo_thumbnail.url }}" alt="">
+                    </div>
+
+                    <div class="prod-info">
+                        <div class="info-price">
+                            <span id="prod_weight"> {{item.weight}} <small>kg</small></span>
+                            <span id="prod_price"> {{item.price}} <small>$</small></span>
+                        </div>
+                        <p class="description"> {{item.description}}</p>
+                    </div>
+                    <div class="select_prod">
+                            <ul>
+                                <li><button class="icon-minus-outline select_button" id="minus_qnt" data-id = "{{item.slug}}"></button></li>
+                                <li><span id = {{item.slug}} class ="quantity"> 0 </span></li>
+                                <li><button class="icon-add-outline select_button" id="plus_qnt" data-id = "{{item.slug}}"></button></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+
+            {% empty %}
+            <li>No items added yet</li>
+			{% endfor %}
+        </div>
+    </div>
+</section>
+{% include 'shop/footer.html' %}
+
+
+<script src="{%static 'shop/js/main_page.js'%}"></script>
+</body>
+</html>
