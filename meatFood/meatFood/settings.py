@@ -29,8 +29,8 @@ DEBUG = bool(int(os.environ.get('DEBUG')))
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1','http://127.0.0.1:80' ]
-CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'http://127.0.0.1:80', ]
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1','http://127.0.0.1:80', 'http://52.55.153.229', 'https://52.55.153.229', ]
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'http://127.0.0.1:80', 'http://52.55.153.229', 'https://52.55.153.229', ]
 
 # Application definition
 
