@@ -24,13 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.environ.get('DEBUG')))
+DEBUG = str(os.environ.get('DEBUG')) == '1'
 
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1','http://127.0.0.1:80', 'http://52.55.153.229', 'https://52.55.153.229', ]
-CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'http://127.0.0.1:80', 'http://52.55.153.229', 'https://52.55.153.229', ]
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1','http://127.0.0.1:80' ]
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1', 'http://127.0.0.1:80', ]
 
 # Application definition
 
@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join('/static/')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join('/media/')
 
 
 # Default primary key field type
